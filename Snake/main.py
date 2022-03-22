@@ -63,17 +63,25 @@ class SNAKE:
 
     def update_head_graphics(self):
         head_relation = self.body[1] - self.body[0]
-        if head_relation == Vector2(1, 0): self.head = self.head_left
-        elif head_relation == Vector2(-1, 0): self.head = self.head_right
-        elif head_relation == Vector2(0, 1): self.head = self.head_up
-        elif head_relation == Vector2(0, -1): self.head = self.head_down
+        if head_relation == Vector2(1, 0):
+            self.head = self.head_left
+        elif head_relation == Vector2(-1, 0):
+            self.head = self.head_right
+        elif head_relation == Vector2(0, 1):
+            self.head = self.head_up
+        elif head_relation == Vector2(0, -1):
+            self.head = self.head_down
 
     def update_tail_graphics(self):
         tail_relation = self.body[-2] - self.body[-1]
-        if tail_relation == Vector2(1, 0): self.tail = self.tail_left
-        elif tail_relation == Vector2(-1, 0): self.tail = self.tail_right
-        elif tail_relation == Vector2(0, 1): self.tail = self.tail_up
-        elif tail_relation == Vector2(0, -1): self.tail = self.tail_down
+        if tail_relation == Vector2(1, 0):
+            self.tail = self.tail_left
+        elif tail_relation == Vector2(-1, 0):
+            self.tail = self.tail_right
+        elif tail_relation == Vector2(0, 1):
+            self.tail = self.tail_up
+        elif tail_relation == Vector2(0, -1):
+            self.tail = self.tail_down
 
     def move_snake(self):
         if self.new_block is True:
@@ -95,7 +103,6 @@ class SNAKE:
     def reset(self):
         self.body = [Vector2(7, 10), Vector2(6, 10), Vector2(5, 10)]
         self.direction = Vector2(0, 0)
-
 
 
 class FRUIT:
@@ -176,7 +183,8 @@ class MAIN:
         score_y = int(cell_size * cell_number - 40)
         score_rect = score_surface.get_rect(center=(score_x, score_y))
         apple_rect = apple.get_rect(midright=(score_rect.left, score_rect.centery))
-        bg_rect = pygame.Rect(apple_rect.left, apple_rect.top, apple_rect.width + score_rect.width + 10, apple_rect.height)
+        bg_rect = pygame.Rect(apple_rect.left, apple_rect.top, apple_rect.width + score_rect.width + 10,
+                              apple_rect.height)
 
         pygame.draw.rect(screen, (167, 209, 61), bg_rect)
         screen.blit(score_surface, score_rect)
